@@ -12,7 +12,9 @@ export default function Card (props: CardProps) {
     <C.Title>{props.title}</C.Title>
     { props.children }
     <div>
-      <Button onClick={() => console.log('batata')}>
+      <Button
+        onClick={() => console.log('batata')}
+      >
         Ver mais
       </Button>
     </div>
