@@ -1,28 +1,19 @@
-import { useEffect, useRef } from 'react';
-import './App.css';
-import useCounter from './hooks/useCounter';
-import PeopleList from './PeopleList';
+import { useEffect, useRef } from "react";
+import "./App.css";
+import Button from "./Button";
 
 function App() {
-  const number = useCounter(9)
-  // const counter = { current: 2 }
-  const counter = useRef(2)
-  const div = useRef<HTMLDivElement>(null)
+  const button = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
-    if (div.current) {
-      div.current.style.backgroundColor = 'green'
-    }
-  }, [])
+    setTimeout(() => {
+      button.current?.click();
+    }, 2000);
+  }, []);
 
   return (
-    <div className="App" ref={div}>
-      { number }
-      <div style={{ backgroundColor: 'peachpuff' }}>
-        { counter.current }
-      </div>
-      <PeopleList />
-      <PeopleList />
+    <div className="App">
+      <Button ref={button} title="clique em mim" />
     </div>
   );
 }
